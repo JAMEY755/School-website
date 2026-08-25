@@ -2,7 +2,10 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0, user-scalable=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#193071">
     <title>Yope International High School | Nesitu, South Sudan</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -253,6 +256,71 @@
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
             background: #0B3C49;
         }
+
+        /* Mobile Optimization & Accessibility */
+        @media (max-width: 768px) {
+            input[type="text"],
+            input[type="tel"],
+            select,
+            textarea {
+                font-size: 16px !important; /* Prevents zoom on iOS focus */
+                padding: 12px 14px !important;
+                min-height: 44px !important; /* Touch target size */
+            }
+            
+            button, 
+            [role="button"],
+            .btn-hover,
+            a.px-8.py-3 {
+                min-height: 48px !important;
+                min-width: 48px !important;
+                padding: 12px 20px !important;
+                font-size: 14px !important;
+            }
+            
+            /* Improve tap/touch spacing */
+            a, button, input, select, textarea {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                user-select: none;
+            }
+            
+            .link-hover {
+                -webkit-user-select: auto;
+                user-select: auto;
+            }
+        }
+
+        /* Prevent horizontal scroll on mobile */
+        html, body {
+            overflow-x: hidden;
+        }
+        
+        body {
+            max-width: 100%;
+        }
+
+        /* Better mobile grid layouts */
+        @media (max-width: 640px) {
+            .grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .gap-12 {
+                gap: 2rem !important;
+            }
+            
+            h1 {
+                line-height: 1.2 !important;
+            }
+            
+            /* Ensure images scale properly */
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
     </style>
 </head>
 <body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
@@ -327,15 +395,15 @@
             <div class="grid lg:grid-cols-12 gap-12 items-center">
                 
                 <div class="lg:col-span-6 space-y-6 entrance-left">
-                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] entrance-up delay-100">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] entrance-up delay-100">
                         YOPE INTERNATIONAL <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-400">HIGH SCHOOL</span>
                     </h1>
-                    <p class="text-lg sm:text-xl text-slate-300 max-w-2xl font-light leading-relaxed entrance-up delay-200">
+                    <p class="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl font-light leading-relaxed entrance-up delay-200">
                         EDUCATION FOR BRIGHT FUTURE.
                         <span> We provide a holistic learning environment that nurtures academic excellence, practical skills, and personal growth for every student.</span>
                     </p>
-                    <div class="pt-4 flex flex-wrap gap-4 items-center entrance-up delay-300">
-                        <a href="#apply" class="px-8 py-3 rounded-lg bg-white text-slate-900 font-bold hover:bg-slate-100 hover:shadow-xl hover:scale-105 transition-all duration-300 hover:-translate-y-1 btn-hover">
+                    <div class="pt-4 flex flex-col sm:flex-row flex-wrap gap-4 items-start sm:items-center entrance-up delay-300">
+                        <a href="#apply" class="w-full sm:w-auto px-8 py-3 rounded-lg bg-white text-slate-900 font-bold hover:bg-slate-100 hover:shadow-xl hover:scale-105 transition-all duration-300 hover:-translate-y-1 btn-hover text-center">
                             Get your Admission
                         </a>
                         
@@ -716,7 +784,7 @@
                             </label>
                             <input type="text" id="studentName" required 
                                    placeholder="e.g. Deng John Garang" 
-                                   class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-sm">
+                                   class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-sm sm:text-base">
                         </div>
 
                         <!-- Date of Birth / Gender -->
@@ -724,7 +792,7 @@
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="gender">
                                 Gender <span class="text-red-500">*</span>
                             </label>
-                            <select id="gender" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-sm bg-white">
+                            <select id="gender" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-sm sm:text-base bg-white">
                                 <option value="">Select Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -738,7 +806,7 @@
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="classLevel">
                                 Applying For Class Level <span class="text-red-500">*</span>
                             </label>
-                            <select id="classLevel" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-sm bg-white">
+                            <select id="classLevel" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-sm sm:text-base bg-white">
                                 <option value="">Select Target Class</option>
                                 <option value="S1">Senior One (S1)</option>
                                 <option value="S2">Senior Two (S2)</option>
@@ -752,7 +820,7 @@
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="enrollmentType">
                                 Student Option <span class="text-red-500">*</span>
                             </label>
-                            <select id="enrollmentType" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-sm bg-white">
+                            <select id="enrollmentType" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-sm sm:text-base bg-white">
                                 <option value="">Select Option</option>
                                 <option value="boarding">Full Boarding Student</option>
                                 <option value="day">Day Student</option>
@@ -768,7 +836,7 @@
                             </label>
                             <input type="text" id="parentName" required 
                                    placeholder="Full Name" 
-                                   class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-sm">
+                                   class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-sm sm:text-base">
                         </div>
 
                         <!-- Phone Contact Number -->
@@ -778,7 +846,7 @@
                             </label>
                             <input type="tel" id="phone" required 
                                    placeholder="+211 92X XXX XXX" 
-                                   class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-sm">
+                                   class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-sm sm:text-base">
                         </div>
                     </div>
 
@@ -789,11 +857,11 @@
                         </label>
                         <textarea id="previousSchool" rows="3" 
                                   placeholder="Mention previous primary/secondary school name and any special requirements..." 
-                                  class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-sm"></textarea>
+                                  class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-sm sm:text-base"></textarea>
                     </div>
 
                     <div class="text-center pt-2">
-                        <button type="submit" class="w-full sm:w-auto px-10 py-4 rounded-xl bg-brand-700 text-white font-bold hover:bg-brand-500 hover:shadow-xl hover:scale-105 transition-all duration-300 hover:-translate-y-1 btn-hover">
+                        <button type="submit" class="w-full sm:w-auto px-10 py-4 rounded-xl bg-brand-700 text-white font-bold hover:bg-brand-500 hover:shadow-xl hover:scale-105 transition-all duration-300 hover:-translate-y-1 btn-hover text-sm sm:text-base">
                             Submit Admission Application <i class="fa-solid fa-paper-plane ml-2"></i>
                         </button>
                     </div>
@@ -956,10 +1024,11 @@
                 <div>
                     <h4 class="text-white font-bold text-sm mb-3">Emergency & Inquiries</h4>
                     <ul class="space-y-1.5 text-xs">
-                        <li class="text-slate-300 font-medium">+211 928 170 000</li>
                         <li class="text-slate-300 font-medium">+211 929 910 000</li>
-                        <li class="text-slate-300 font-medium">+211 927 336 6905</li>
-                        <li class="text-slate-300 font-medium">+211 929 656 141</li>
+                        <li class="text-slate-300 font-medium">+211 914 778 888</li>
+                        <li class="text-slate-300 font-medium">+211 924 245 106</li>
+                        <li class="text-slate-300 font-medium">+256 777 244 470</li>
+                        
                     </ul>
                 </div>
 
@@ -1084,24 +1153,77 @@
             }
         }
 
-        // Form Submit Handler
-        function handleFormSubmit(e) {
+        // Form Submit Handler with Backend API Integration
+        async function handleFormSubmit(e) {
             e.preventDefault();
+            
+            // Get form values
             const studentName = document.getElementById('studentName').value;
+            const gender = document.getElementById('gender').value;
             const classLevel = document.getElementById('classLevel').value;
+            const enrollmentType = document.getElementById('enrollmentType').value;
+            const parentName = document.getElementById('parentName').value;
+            const phone = document.getElementById('phone').value;
+            const previousSchool = document.getElementById('previousSchool').value;
 
-            // Show customized modal dialog (replacing standard alert)
-            const modal = document.getElementById('successModal');
-            const modalContent = document.getElementById('modalContent');
-            const modalMsg = document.getElementById('modalMessage');
+            // Disable submit button during processing
+            const submitBtn = document.querySelector('#admissionForm button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
 
-            modalMsg.textContent = `Thank you! Admission application for ${studentName} for class ${classLevel} has been received. Our team in Nesitu will get in touch via phone shortly.`;
+            try {
+                // Send data to backend API
+                const response = await fetch('/api/submit-application', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        studentName,
+                        gender,
+                        classLevel,
+                        enrollmentType,
+                        parentName,
+                        phone,
+                        previousSchool
+                    })
+                });
 
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            modalContent.classList.remove('scale-95');
+                const data = await response.json();
 
-            // Reset form
-            document.getElementById('admissionForm').reset();
+                if (data.success) {
+                    // Show success modal
+                    const modal = document.getElementById('successModal');
+                    const modalContent = document.getElementById('modalContent');
+                    const modalMsg = document.getElementById('modalMessage');
+
+                    modalMsg.innerHTML = `
+                        <strong style="display: block; margin-bottom: 8px;">Thank you, ${studentName}!</strong>
+                        Your admission application for <strong>${classLevel}</strong> has been submitted successfully. 
+                        <br><br>
+                        <span style="font-size: 12px; color: #666;">Our admissions team will contact you at <strong>${phone}</strong> within 24-48 hours to discuss enrollment details and next steps.</span>
+                    `;
+
+                    modal.classList.remove('opacity-0', 'pointer-events-none');
+                    modalContent.classList.remove('scale-95');
+
+                    // Reset form
+                    document.getElementById('admissionForm').reset();
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                } else {
+                    // Show error message
+                    alert('Error: ' + data.message);
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Unable to submit application. Please try again or contact us directly at +211 928 170 000');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
         }
 
         function closeModal() {
