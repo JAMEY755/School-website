@@ -320,6 +320,44 @@
                 height: auto;
                 display: block;
             }
+
+            /* Keep the first viewport compact on small phones. */
+            #navbar .h-20 {
+                height: 4.25rem;
+            }
+
+            #home {
+                min-height: 36rem;
+                padding-top: 2.5rem;
+                padding-bottom: 5.5rem;
+            }
+
+            #home .space-y-6 {
+                gap: 1rem;
+            }
+
+            #home h1 {
+                font-size: 2rem !important;
+                line-height: 1.08 !important;
+            }
+
+            #home p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            #home .pt-4 {
+                padding-top: 0.25rem;
+            }
+
+            #home .btn-hover {
+                padding: 0.75rem 1rem !important;
+            }
+
+            #mobile-menu {
+                padding-top: 0.5rem;
+                padding-bottom: 1rem;
+            }
         }
     </style>
 </head>
@@ -331,17 +369,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- School Logo / Brand -->
-                <a href="#" class="flex items-center gap-3 group entrance-scale">
-                    <div class="w-10 h-10 rounded-lg bg-white text-brand-500 flex items-center justify-center font-extrabold text-sm shadow-md group-hover:bg-slate-100 transition-all group-hover:shadow-lg">
+                <div class="flex items-center gap-3 group entrance-scale">
+                    <button id="mobile-menu-btn" type="button" class="lg:hidden w-10 h-10 rounded-lg bg-white text-brand-500 flex items-center justify-center font-extrabold text-sm shadow-md group-hover:bg-slate-100 transition-all group-hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white/80" aria-label="Toggle Navigation" aria-controls="mobile-menu" aria-expanded="false">
                         <img src="badge.jpg" 
                              alt="Yope International High School Logo" 
                              class="w-8 h-8 object-contain">
-                    </div>
+                    </button>
                     <div>
-                        <span class="block font-bold text-lg leading-tight text-white group-hover:text-brand-300 transition-colors">Yope International </span>
+                        <a href="#home" class="block font-bold text-lg leading-tight text-white group-hover:text-brand-300 transition-colors">Yope International </a>
                         <span class="block text-xs font-semibold tracking-wider text-slate-200 uppercase">High School</span>
                     </div>
-                </a>
+                </div>
 
                 <!-- Desktop Nav Links -->
                 <div class="hidden lg:flex items-center space-x-8 text-sm font-medium text-white/90">
@@ -359,10 +397,6 @@
                 </a>
             </div>
 
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-btn" type="button" class="lg:hidden p-2.5 rounded-lg text-white/90 hover:text-white hover:bg-white/10 focus:outline-none" aria-label="Toggle Navigation">
-                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
-                </button>
             </div>
         </div>
 
@@ -382,7 +416,7 @@
     </nav>
 </header>
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white min-h-[85vh] flex items-center pt-12 pb-24 overflow-hidden">
+    <section id="home" class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white min-h-[85vh] flex items-center pt-12 pb-24 overflow-hidden">
         <!-- Background Overlay Image & Visual Gradients -->
         <div class="absolute inset-0 z-0">
             <img src="yopestud.jpg" 
@@ -549,7 +583,7 @@
                         <div class="w-16 h-16 rounded-2xl bg-brand-500/20 text-brand-gold flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
                             <i class="fa-solid fa-flask"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Sciences & STEM</h3>
+                        <h3 class="text-xl font-bold mb-3">Sciences</h3>
                         <p class="text-slate-300 text-sm leading-relaxed mb-6">
                             Focused on scientific exploration, mathematics, biology, chemistry, and practical analytical problem-solving tailored for higher learning standards.
                         </p>
@@ -632,10 +666,7 @@
                             <i class="fa-solid fa-check text-brand-500 text-lg"></i>
                             <span class="text-slate-800 font-semibold text-sm">Demonstration Farm Plots</span>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-check text-brand-500 text-lg"></i>
-                            <span class="text-slate-800 font-semibold text-sm">Dedicated Sports Grounds</span>
-                        </div>
+                        
                         <div class="flex items-center gap-3">
                             <i class="fa-solid fa-check text-brand-500 text-lg"></i>
                             <span class="text-slate-800 font-semibold text-sm">Science & Tech Equipment</span>
@@ -908,10 +939,10 @@
                             <div>
                                 <h4 class="font-bold text-brand-900 text-sm">Official Phone Contacts</h4>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-1 text-xs text-slate-600 mt-1">
-                                    <a href="tel:+211928170000" class="hover:text-brand-500 font-medium">+211 928 170 000</a>
-                                    <a href="tel:+211929910000" class="hover:text-brand-500 font-medium">+211 929 910 000</a>
-                                    <a href="tel:+2119273366905" class="hover:text-brand-500 font-medium">+211 927 336 6905</a>
-                                    <a href="tel:+211929656141" class="hover:text-brand-500 font-medium">+211 929 656 141</a>
+                                    <a href="tel:+211929910000" class="hover:text-brand-500 font-medium">+211 928 170 000</a>
+                                    <a href="tel:+211914778888" class="hover:text-brand-500 font-medium">+211 929 910 000</a>
+                                    <a href="tel:+211924245106" class="hover:text-brand-500 font-medium">+211 927 336 6905</a>
+                                    <a href="tel:+256777244470" class="hover:text-brand-500 font-medium">+211 929 656 141</a>
                                 </div>
                             </div>
                         </div>
@@ -939,7 +970,7 @@
                         <!-- Top Left Content -->
                         <div class="relative z-10 p-6 sm:p-8">
                             <div class="space-y-4 max-w-xs">
-                                <span class="px-3 py-1 bg-brand-gold text-brand-900 text-xs font-bold rounded-full uppercase inline-block">A word from our Director</span>
+                                <span class="px-3 py-1 bg-brand-gold text-brand-900 text-xs font-bold rounded-full uppercase inline-block">Our Director</span>
                                 
                             </div>
                         </div>
@@ -975,13 +1006,7 @@
                                     <p class="text-white font-bold text-sm transition-colors duration-300 hover:text-brand-gold">Yope Evans Lodu</p>
                                     <p class="text-brand-gold text-xs font-semibold">Director</p>
                                     
-                                    <div class="flex gap-1 mt-3 justify-center">
-                                        <i class="fa-solid fa-star text-brand-gold text-xs transition-all duration-200 hover:scale-125\"></i>
-                                        <i class="fa-solid fa-star text-brand-gold text-xs transition-all duration-200 hover:scale-125\"></i>
-                                        <i class="fa-solid fa-star text-brand-gold text-xs transition-all duration-200 hover:scale-125\"></i>
-                                        <i class="fa-solid fa-star text-brand-gold text-xs transition-all duration-200 hover:scale-125\"></i>
-                                        <i class="fa-solid fa-star text-brand-gold text-xs transition-all duration-200 hover:scale-125\"></i>
-                                    </div>
+                                
                                 </div>
                             </div>
                         </div>
@@ -1065,22 +1090,17 @@
         // Mobile Nav Drawer Toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
 
         menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            if(mobileMenu.classList.contains('hidden')) {
-                menuIcon.className = "fa-solid fa-bars text-xl";
-            } else {
-                menuIcon.className = "fa-solid fa-xmark text-xl";
-            }
+            const isOpen = mobileMenu.classList.toggle('hidden') === false;
+            menuBtn.setAttribute('aria-expanded', String(isOpen));
         });
 
         // Close mobile drawer when link is tapped
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
-                menuIcon.className = "fa-solid fa-bars text-xl";
+                menuBtn.setAttribute('aria-expanded', 'false');
             });
         });
 

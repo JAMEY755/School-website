@@ -1,12 +1,16 @@
 const nodemailer = require('nodemailer');
 
+const smtpHost = (process.env.SMTP_HOST || '').trim();
+const smtpUser = (process.env.SMTP_USER || '').trim();
+const smtpPassword = (process.env.SMTP_PASSWORD || '').replace(/\s+/g, '');
+
 const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
+  host: smtpHost,
   port: Number(process.env.SMTP_PORT || 587),
   secure: Number(process.env.SMTP_PORT || 587) === 465,
   auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASSWORD,
+    user: smtpUser,
+    pass: smtpPassword,
   },
 });
 
